@@ -1,0 +1,6 @@
+<div class="container-notfound">
+  <h3>Error</h3>
+  <h2>Bueno no es un error, solo que no existe esta página</h2>
+  <h3>Sin embargo aquí estan mis ultimas publicaciones</h3>
+  <app-card-post [routerLink]="['/blog/post/' + recentPost.id]" *ngFor="let recentPost of recentPosts" [recentPost]="recentPost"></app-card-post>
+</div>

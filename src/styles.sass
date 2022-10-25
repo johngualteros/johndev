@@ -1,1 +1,255 @@
-/* You can add global styles to this file, and also import other style files */
+$dark: #20252c
+$light: #e4e4e5
+$white: #fff
+$black: #111
+$primary: #199afc
+$secondary: #444
+$gray: #6a6b6c
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+body
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  background: $white
+  color: $secondary
+  transition: all 0.5s ease
+  h1,h2,h3,h4,h5,h6
+    color: $black
+
+.dark
+  background: $dark
+  color: $light
+  transition: all 0.5s ease
+  h1,h2,h3,h4,h5,h6
+    color: $white
+
+@mixin header($mode)
+  background: transparent
+  width: 75%
+  padding: 30px 0 0 0
+  margin: 0 auto
+  display: flex
+  justify-content: space-between
+  align-items: center
+  transition: all 0.3s ease
+  .logo
+    img
+      cursor: pointer
+      transition: all 0.3s ease
+      transform: scale(1)
+      &:hover
+        transform: scale(1.1)
+  input
+    @if $mode == false
+      border: 1px solid #f0f0f0
+    @if $mode == true
+      border: 1px solid #38424f
+
+    color: $white
+    background: transparent
+    padding: 5px 10px
+    margin-right: 5px
+    border-radius: 10px
+    outline: none
+    transition: all 0.3s ease
+    &:focus
+      transition: all 0.3s ease
+      outline: none
+      box-shadow: 0 0 5px $primary
+  .right-header
+    display: flex
+    align-items: center
+  .links
+    display: flex
+    align-items: center
+    a
+      padding: 10px
+      transition: all 0.3s ease
+      border: 1px solid transparent
+      &:hover
+        @if $mode == true
+          background-color: #3c4654ff
+        @if $mode == false
+          background-color: $white
+          border: 1px solid $primary
+          transition: all 0.3s ease
+          border-radius: 5px
+
+@mixin repository($backgroundhover, $titlecolor, $color)
+  text-decoration: none
+  .repository
+    width: 100%
+    padding: 10px
+    border: 1px solid $primary
+    border-radius: 10px
+    margin: 20px 0
+    h1,h2,h3,h4,h5,h6
+      color: $titlecolor
+    h3
+      font-size: 1rem
+    p
+      color: $color
+      font-size: .8rem
+    &:hover
+      background-color: $backgroundhover
+      transition: all 0.3s ease
+
+@mixin post($backgroundhover, $titlecolor, $color, $border)
+  text-decoration: none
+  .card_post
+    width: 85%
+    padding: 5px
+    border-radius: 10px
+    margin: 20px 0
+    display: grid
+    transition: all 0.3s ease
+    grid-template-columns: 20% 80%
+    grid-template-rows: 1fr
+    @if $border == true
+      border: 1px solid transparent
+      border-radius: 10px
+
+    .content
+      display: flex
+      flex-direction: column
+      justify-content: center
+    .logo
+      display: grid
+      place-items: center
+      img
+        transform: scale(.9)
+        transition: all 0.3s ease
+    h1,h2,h3,h4,h5,h6
+      color: $titlecolor
+      font-weight: 600
+    p
+      color: $color
+      font-size: .7rem
+    &:hover
+      cursor: pointer
+      background-color: $backgroundhover
+      transition: all 0.3s ease
+
+      @if $border == true
+        border: 1px solid $primary
+      @if $border == false
+        border: 1px solid transparent
+
+      .logo
+        img
+          transform: scale(1)
+          transition: all 0.3s ease
+
+body header
+  @include header(false)
+
+.dark header
+  @include header(true)
+
+body .effect-blur
+  display: none
+
+.dark .effect-blur
+  display: block
+  &::after
+    content: ""
+    position: absolute
+    width: 200px
+    height: 200px
+    left: 5%
+    top: 20%
+    filter: blur(100px)
+    background-color: #199afc3f
+  &::before
+    content: ""
+    position: absolute
+    width: 200px
+    height: 200px
+    right: 5%
+    bottom: 10%
+    filter: blur(100px)
+    background-color: #199afc6b
+
+footer
+  width: 75%
+  margin: 0 auto
+  display: flex
+  justify-content: flex-end
+  align-items: center
+  padding: 20px 0
+  p
+    font-size: 14px
+  a
+    color: $primary
+    text-decoration: none
+    transition: all 0.3s ease
+    &:hover
+      color: $secondary
+
+body .repo-link
+  @include repository($light, $black, $secondary)
+
+.dark .repo-link
+  @include repository(#3c4654ff, $white, $light)
+
+body .post_link
+  @include post(#199afc22, $black, $secondary, true)
+
+.dark .post_link
+  @include post(#3c4654ff, $white, $light, false)
+
+.container_post
+  width: 53%
+  margin: 40px auto
+  .post_header
+    width: 100%
+    display: grid
+    grid-template-columns: 20% 80%
+    grid-template-rows: 1fr
+    .logo_post
+      display: grid
+      place-items: center
+    .title_post
+      p
+        font-size: .7rem
+  .content_post
+    margin-top: 30px
+
+
+.categories
+  margin-top: 20px
+.bold
+  font-weight: 700
+.badge
+  padding: 2px 10px
+  font-weight: 600
+  border-radius: 5px
+  background-color: #199afc98
+  border: 1px solid $primary
+  color: $white
+  margin-right: 5px
+  margin-left: 5px
+
+.see_more
+  margin-top: 20px
+  color: #199afc98
+  font-weight: 600
+  text-decoration: underline
+  cursor: pointer
+  &:hover
+    color: $primary
+.title_section
+  margin-top: 50px !important
+
+.spotify
+  position: fixed
+  bottom: 20px
+  left: 20px
+.container-notfound
+  width: 75%
+  margin: 20px auto
+  text-align: center
+

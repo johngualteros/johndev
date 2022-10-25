@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="posts">
+    <!-- RECENTS POSTS -->
+    <h3>Mis publicaciones más recientes</h3>
+    <app-card-post [routerLink]="['/blog/post/' + recentPost.id]" *ngFor="let recentPost of recentPosts" [recentPost]="recentPost"></app-card-post>
+    <!-- FIRSTS POSTS -->
+    <h3 class="title_section">Mis primeras publicaciones</h3>
+    <app-card-post-firsts *ngFor="let post of posts" [post]="post"></app-card-post-firsts>
+    <p class="see_more" (click)="loadMorePosts()">ver más posts ></p>
+  </div>
+  <div class="repos">
+    <h3>Algunos de mis repositorios</h3>
+    <app-card-repository
+      *ngFor="let repository of repositories"
+      [repository]="repository"
+    ></app-card-repository>
+    <div class="container_buy_coffe">
+      <a href="https://www.buymeacoffee.com/gualterosjohn" target="_blank">
+        <img src="https://storage.googleapis.com/static.cosmoschaos.net/blog/buymeacoffee/buymeacoffee.webp" class="buy_coffe" alt="Buy Me a Coffe">
+      </a>
+      <img src="../../assets/social/bmc_qr.png" alt="Codigo QR" class="qr">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container_post">
+  <div class="post_header">
+    <div class="logo_post">
+      <img src="{{ post.logo }}" alt="Java" width="100">
+    </div>
+    <div class="title_post">
+      <h1>{{ post.title }}</h1>
+      <p>{{ post.date }}</p>
+    </div>
+    <p class="categories">
+      /<span class="badge" *ngFor="let category of post.category">{{category}}</span>/
+    </p>
+  </div>
+  <div class="content_post" #content_post>
+  </div>
+</div>
