@@ -10,6 +10,7 @@ import { Post1Component } from './blog/post1/post1.component';
 import { CardPostComponent } from './card-post/card-post.component';
 import { CardPostFirstsComponent } from './card-post-firsts/card-post-firsts.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { Post3Component } from './blog/post3/post3.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     Post1Component,
     CardPostComponent,
     CardPostFirstsComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    Post3Component
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,12 @@
 # Johndev
+## personal blog example with some integrations and some technologies
+
+![](./src/assets/readme/blog_1.png)
+![](./src/assets/readme/blog2.png)
+![](./src/assets/readme/blog3.png)
+![](./src/assets/readme/blog4.png)
+![](./src/assets/readme/blog5.png)
+![](./src/assets/readme/blog6.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
 
